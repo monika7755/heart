@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.istockphoto.com/photos/blue-medical-background-with-clipboard-and-stethoscope-picture-id1133637775?b=1&k=20&m=1133637775&s=170667a&w=0&h=vCHWTcAKIu3Q-hBMkxGBlLOZo1cCYLRnLl2Czj8iQ7M=');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .box {
+            width: 420px;
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.92);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 18px rgba(0,0,0,0.35);
+            animation: popup 0.4s ease-out;
+        }
+
+        @keyframes popup {
+            0% { transform: translateY(-50%) scale(0.6); opacity: 0; }
+            100% { transform: translateY(-50%) scale(1); opacity: 1; }
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        a.btn {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            background: #0066ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        a.btn:hover {
+            background: green;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+
+    {% if "Detected" in result %}
+        <h2>😢 {{ result }}</h2>
+    {% else %}
+        <h2>😊 {{ result }}</h2>
+    {% endif %}
+
+    <a href="/" class="btn">Go Back</a>
+    <a href="/graphs" class="btn">View Graphs</a>
+</div>
+
+
+
+</body>
+</html>
